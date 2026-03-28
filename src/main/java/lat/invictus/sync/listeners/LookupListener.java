@@ -334,16 +334,16 @@ public class LookupListener implements Listener {
         }
     }
 
-    private ChatColor sanctionColor(String t) {
-        switch (t.toLowerCase()) {
-            case "ban":  return ChatColor.RED;
-            case "kick": return ChatColor.GOLD;
-            case "mute": return ChatColor.YELLOW;
-            case "warn": return ChatColor.AQUA;
-            case "jail": return ChatColor.DARK_GRAY;
-            default:     return ChatColor.GRAY;
-        }
+private String sanctionColor(String t) {
+    switch (t.toLowerCase()) {
+        case "ban":  return ChatColor.RED.toString();
+        case "kick": return ChatColor.GOLD.toString();
+        case "mute": return ChatColor.YELLOW.toString();
+        case "warn": return ChatColor.AQUA.toString();
+        case "jail": return ChatColor.DARK_GRAY.toString();
+        default:     return ChatColor.GRAY.toString();
     }
+}
 
     private String typeName(String t) {
         switch (t.toLowerCase()) {
