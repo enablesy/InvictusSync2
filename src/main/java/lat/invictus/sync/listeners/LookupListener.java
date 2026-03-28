@@ -127,9 +127,11 @@ public class LookupListener implements Listener {
         inv.setItem(4, head);
 
         // Header sanciones
-        inv.setItem(9, item(Material.BOOK,
-            ChatColor.RED + "" + ChatColor.BOLD + "Sanciones recientes",
-            Collections.singletonList(ChatColor.GRAY + "" + data.sanctions.size() + " registradas")
+        inv.setItem(9, item(
+    Material.BOOK,
+    ChatColor.RED + "" + ChatColor.BOLD + "Sanciones recientes",
+    Collections.singletonList(ChatColor.GRAY + "" + data.sanctions.size() + " registradas")
+));
 
         // Sanciones
         int slot = 10;
@@ -152,9 +154,11 @@ public class LookupListener implements Listener {
         inv.setItem(22, sep);
 
         // Header alts
-        inv.setItem(23, item(Material.COMPASS,
-            ChatColor.YELLOW + "" + ChatColor.BOLD + "Posibles alts",
-            Collections.singletonList(ChatColor.GRAY + "" + data.alts.size() + " detectados")
+        inv.setItem(23, item(
+    Material.COMPASS,
+    ChatColor.YELLOW + "" + ChatColor.BOLD + "Posibles alts",
+    Collections.singletonList(ChatColor.GRAY + "" + data.alts.size() + " detectados")
+));
 
         // Alts
         int altSlot = 24;
