@@ -8,23 +8,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Set up Java 17
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+          distribution: temurin
+          java-version: 17
 
-      - name: Instalar RyzenStaff como dependencia local
-        run: mvn install:install-file -Dfile=libs/RyzenStaff.jar -DgroupId=dev.imshadow -DartifactId=RyzenStaff -Dversion=2.0.8 -Dpackaging=jar
+      - name: Install RyzenStaff dependency
+        run: |
+          mvn install:install-file \
+          -Dfile=libs/RyzenStaff.jar \
+          -DgroupId=dev.imshadow \
+          -DartifactId=RyzenStaff \
+          -Dversion=2.0.8 \
+          -Dpackaging=jar
 
-      - name: Compilar con Maven
-        run: mvn package -DskipTests
+      - name: Build plugin
+        run: mvn clean package -DskipTests
 
-      - name: Subir JAR compilado
+      - name: Upload jar
         uses: actions/upload-artifact@v4
         with:
           name: InvictusSync
-          path: target/InvictusSync-1.0.0.jar
+          path: target/*.jar
