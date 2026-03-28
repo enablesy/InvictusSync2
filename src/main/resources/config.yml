@@ -1,0 +1,93 @@
+worker-url: "https://staff.invictus.lat"
+mc-token: "invictus_mc_sync_2026"
+status-interval: 30
+
+sync:
+  status: true
+  plugins: true
+
+# ── DETECCIÓN DE SPAM ─────────────────────────────
+spam:
+  flood-count: 6           # mensajes en la ventana para activar flood
+  flood-window-ms: 5000    # ventana de tiempo en ms
+  repeat-count: 4          # mismo mensaje repetido N veces
+  repeat-window-ms: 8000   # ventana de repetición en ms
+  report-cooldown-ms: 30000
+  caps-threshold: 0.70     # porcentaje de mayúsculas para activar (0.0-1.0)
+  caps-min-length: 8       # longitud mínima del mensaje para revisar caps
+  notify-staff: true       # notificar al staff en el servidor al detectar spam
+
+# ── PALABRAS PROHIBIDAS ───────────────────────────
+word-filter:
+  enabled: true
+  # Lista base — se combina con las del portal
+  words:
+    - "palabra1"
+    - "palabra2"
+  # Acción al detectar una palabra: notify, report, both
+  action: "both"
+
+# ── ALERTAS DE TPS/RAM ────────────────────────────
+alerts:
+  tps-threshold: 15.0      # alertar si TPS baja de este valor
+  ram-threshold: 90        # alertar si RAM supera este porcentaje
+  check-interval: 100      # cada cuántos ticks revisar (100 = 5s)
+  cooldown-ms: 60000       # mínimo entre alertas del mismo tipo
+
+# ── ANTI EVASIÓN ─────────────────────────────────
+anti-evasion:
+  enabled: true
+  notify-staff: true
+
+# ── MENSAJES ─────────────────────────────────────
+messages:
+  prefix: "§6§l⚔ INVICTUS §r"
+  no-permission: "§cNo tienes permiso para usar este comando."
+  player-only: "§cEste comando solo puede usarlo un jugador."
+  error-contact: "§cError al contactar el servidor. Inténtalo de nuevo."
+
+  # /link
+  link-already-linked: "{prefix}§7— Tu cuenta ya está vinculada a §e{discord}§7 en el portal."
+  link-already-linked-hint: "§7Si quieres cambiarla, desvincula desde tu perfil en el §6Staff Portal§7."
+  link-header: "{prefix}§7— Vinculación de cuenta"
+  link-code-label: "§7Tu código de vinculación es:"
+  link-code-hint: "§7Ingrésalo en tu perfil del §6Staff Portal§7 en los próximos §e5 minutos§7."
+  link-error: "§cError al generar el código. Inténtalo de nuevo."
+
+  # /postular
+  postular-header: "{prefix}§7— Postulación al equipo"
+  postular-url: "§7Visita §6https://invictus.lat/postular §7y usa este código:"
+  postular-hint: "§7El código expira en §e10 minutos§7."
+  postular-error: "§cError al generar el código. Inténtalo de nuevo."
+
+  # /staff
+  staff-header: "{prefix}§7— Staff conectado §8(§e{count}§8)§7:"
+  staff-entry: "§8  · §a{name}"
+  staff-empty: "{prefix}§7— No hay staff conectado en este momento."
+
+  # /historial
+  lookup-usage: "§eUso: /lookup <jugador>"
+  lookup-not-found: "§cNo se encontró historial para §e{player}§c."
+  lookup-loading: "§7Buscando información sobre §e{player}§7..."
+
+  # /ticket
+  ticket-usage: "§eUso: /ticket <descripción>"
+  ticket-sent: "{prefix}§a— Tu ticket ha sido enviado. El staff lo revisará pronto."
+  ticket-error: "§cError al enviar el ticket. Inténtalo de nuevo."
+  ticket-cooldown: "§cDebes esperar antes de enviar otro ticket."
+
+  # Spam/flood
+  spam-staff-notify: "§c§l[SPAM] §r§7Reporte automático: §e{player} §7— {detail}"
+  caps-staff-notify: "§e§l[CAPS] §r§7Advertencia automática: §e{player}"
+
+  # Anti evasión
+  evasion-staff-notify: "§c§l[EVASIÓN] §r§7{player} §cconectado con IP de ban previo."
+
+  # Alertas TPS/RAM
+  alert-tps: "§c§l[ALERTA TPS] §r§7TPS actual: §c{tps}§7 — Por debajo del umbral mínimo."
+  alert-ram: "§c§l[ALERTA RAM] §r§7Uso de RAM: §c{percent}%§7 — Memoria crítica."
+
+  # Sync
+  syncplugins-start: "§eSincronizando plugins..."
+  syncplugins-done: "§aPlugins sincronizados correctamente."
+  reload-done: "§aInvictusSync recargado."

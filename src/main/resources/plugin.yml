@@ -1,0 +1,39 @@
+name: InvictusSync
+version: 1.0.0
+main: lat.invictus.sync.InvictusSync
+api-version: 1.20
+author: INVICTUS Network
+description: Sincroniza eventos del servidor con el Staff Portal de INVICTUS
+
+depend: [RyzenStaff, AdvancedBan]
+
+permissions:
+  invictussync.admin:
+    description: Permite recargar InvictusSync y sincronizar plugins
+    default: op
+  invictussync.link:
+    description: Permite vincular cuenta con el Staff Portal y usar comandos de staff
+    default: false
+
+commands:
+  invictussync:
+    description: Gestión de InvictusSync
+    usage: /invictussync reload
+    permission: invictussync.admin
+  syncplugins:
+    description: Sincroniza la lista de plugins con el Staff Portal
+    usage: /syncplugins
+    permission: invictussync.admin
+  link:
+    description: Vincula tu cuenta de Minecraft con el Staff Portal
+    usage: /link
+    permission: invictussync.link
+  postular:
+    description: Genera un codigo para postularte al equipo de INVICTUS
+    usage: /postular
+  staff:
+    description: Muestra el staff conectado en este momento
+    usage: /staff
+  ticket:
+    description: Abre el menú de tickets
+    usage: /ticket
