@@ -129,7 +129,7 @@ public class LookupListener implements Listener {
         // Header sanciones
         inv.setItem(9, item(Material.BOOK,
             ChatColor.RED + "" + ChatColor.BOLD + "Sanciones recientes",
-            Collections.singletonList(ChatColor.GRAY + data.sanctions.size() + " registradas")));
+            Collections.singletonList(ChatColor.GRAY + "" + data.sanctions.size() + " registradas")
 
         // Sanciones
         int slot = 10;
@@ -154,7 +154,7 @@ public class LookupListener implements Listener {
         // Header alts
         inv.setItem(23, item(Material.COMPASS,
             ChatColor.YELLOW + "" + ChatColor.BOLD + "Posibles alts",
-            Collections.singletonList(ChatColor.GRAY + data.alts.size() + " detectados")));
+            Collections.singletonList(ChatColor.GRAY + "" + data.alts.size() + " detectados")
 
         // Alts
         int altSlot = 24;
@@ -176,7 +176,7 @@ public class LookupListener implements Listener {
                 Collections.singletonList(ChatColor.GRAY + "No se encontraron IPs compartidas.")));
 
         inv.setItem(35, sep);
-        inv.setItem(49, item(Material.BARRIER, ChatColor.RED + "Cerrar"));
+        inv.setItem(49, item(Material.BARRIER, ChatColor.RED + "Cerrar", null));
         return inv;
     }
 
